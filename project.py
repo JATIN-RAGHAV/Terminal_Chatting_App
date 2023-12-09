@@ -9,9 +9,9 @@ KEYS = ['username','password','friends','in_request','out_request']
 
 def main():
     clear()
+    print_welcome()
     try:
         while True:
-            print_welcome()
             print('----------------------------------------------------------------------------------------------------------------------')
             print('----------------------------------------------------------------------------------------------------------------------')
             print('Enter "l" for login')
@@ -76,7 +76,7 @@ def password_checker(entered_password, hashed_password):
 def logged_in(user):
     clear()
     while True:
-        print_welcome()
+        #print_welcome()
         print('-----------------------------------------------------------')
         print('-----------------------------------------------------------')
         print('Enter "p" to print username and password')
