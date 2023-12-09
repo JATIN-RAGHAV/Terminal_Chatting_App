@@ -28,7 +28,10 @@ def main():
             elif ans == 'r':
                 user = register()
                 clear()
-                logged_in(user)
+                if user.user:
+                    logged_in(user)
+                else:
+                    print('Username taken')
             elif ans == 'u':
                 clear()
                 if USERS:
@@ -76,7 +79,6 @@ def password_checker(entered_password, hashed_password):
 def logged_in(user):
     clear()
     while True:
-        #print_welcome()
         print('-----------------------------------------------------------')
         print('-----------------------------------------------------------')
         print('Enter "p" to print username and password')
@@ -98,7 +100,8 @@ def logged_in(user):
             clear()
             if USERS:
                 for i in USERS:
-                    print(i['username'])
+                    if i['username'] != user.user['username']:
+                        print(i['username'])
             else:
                 print('No users yet')
             print_lines()
@@ -111,7 +114,7 @@ def logged_in(user):
             print_lines()
             if user.friends:
                 for i in user.friends:
-                    print(f" {i} your friend")
+                    print(f" {i} is your friend")
             else:
                 print_lines()
                 print("You don't have any friends yet. Don't worry though I am here.")
@@ -143,9 +146,9 @@ def logged_in(user):
             else:
                 for i in user.in_request:
                     print(f'You received a friend request from {i}')
-            print_lines()
-            accepted = input("Enter a friend's name: ")
-            user.accept_request = accepted
+                print_lines()
+                accepted = input("Enter a friend's name: ")
+                user.accept_request = accepted
         elif ans == 'e':
             clear()
             write_to_file()
@@ -187,7 +190,10 @@ def register():
     username = input('Please enter username: ')
     password = input('Please enter password: ')
     user = User(username, password, [], [], [])
-    return user
+    if user:
+        return user
+    else:
+        return False
 
 def login():
     username = input('Please enter username: ')
@@ -251,6 +257,7 @@ def print_thank_you():
     print('-----------------------------------------------------------')
     print('-----------------------------------------------------------')
     print('Thank you for using this programe')
+    print_lines()
     sys.exit(1)
 
 class User():
@@ -263,12 +270,18 @@ class User():
         self.user = ((username, password, out_request, in_request, friends))
 
     def __str__(self):
-        return f'username is {self.user["username"]} and encripted password is {self.user["password"]}'
-
+        if self.user:
+            return f'username is {self.user["username"]} and encripted password is {self.user["password"]}'
+        else:
+            return False
+            
     @property
     def user(self):
-        return self._user
-
+        if self._user != '':
+            return self._user
+        else:
+            return False
+        
     @property
     def friends(self):
         return self._friends
@@ -286,7 +299,6 @@ class User():
         if self.user['username'] == username:
             print_lines()
             print("Can't add you to your friends, atleast not here")
-            return
         elif username in self.friends:
             print_lines()
             print(f"{username} is already a friend of yours")
@@ -366,7 +378,7 @@ class User():
                     self.in_request = i
             return 'User created successfully'
         else:
-            main()
+            return False
 
     @classmethod
     def check_username(cls, user, password):
