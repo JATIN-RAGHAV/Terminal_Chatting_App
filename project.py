@@ -26,8 +26,8 @@ def main():
                     clear()
                     logged_in(user)
             elif ans == 'r':
-                user = register()
                 clear()
+                user = register()
                 if user.user:
                     logged_in(user)
                 else:
@@ -93,6 +93,7 @@ def logged_in(user):
         ans = input('Enter: ').lower()
         if ans == 'p':
             clear()
+            print(user)
         elif ans == 'lo':
             clear()
             main()
@@ -333,6 +334,7 @@ class User():
         elif username in self.in_request:
             print_lines()
             print(f"{username} has already sent you a friend request (guess he was quick AF, maybe he thinks of you more than a friend, who knows)")
+            return
         for i in USERS:
             if i['username'] == self_username:
                 if any(out_request_person_exists.get('username') == username for out_request_person_exists in USERS):

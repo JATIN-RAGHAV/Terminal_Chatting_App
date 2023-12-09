@@ -1,4 +1,5 @@
 username,password,friends,in_request,out_request
-hello,b'$2b$12$51iD3WBlTtHuaFnUy9m8MulqqR3k34qIpiuAdrbo19AUa7U7U5pN6',"[""jatin""]",[],[]
-jatin,b'$2b$12$.k96Ka6vrRIb0IVTg/Sic.o.Pk/ieSrEVRXUD7M/lGUUxqqEyqOAK',"[""hello""]",[],[]
-name,b'$2b$12$rT6iXrn7DX9.GAT/QKbmCeBr.cok4ZedhnRxA715LLpZkEK66x962',[],[],[]
+hello,b'$2b$12$51iD3WBlTtHuaFnUy9m8MulqqR3k34qIpiuAdrbo19AUa7U7U5pN6',[],[],[]
+hi,b'$2b$12$Yy7eFydwUayxLsGHVXkaCekMlDLtPXAvhu9Ca5U.j.WpZPfR87The',[],[],[]
+name,b'$2b$12$S1hC.DA8H.6A3CY0Ii4dhOJWdySqkIcNv9jBJwQ3NaHuG1LHoY1Kq',[],[],[]
+jatin,b'$2b$12$eJKCncu8W/3oDKZa9E5.FOmB1j0NAlrFYMbMnRtDXvQWOn4MKjcGO',[],[],[]
