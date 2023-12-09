@@ -11,6 +11,7 @@ def main():
     clear()
     try:
         while True:
+            print_welcome()
             print('----------------------------------------------------------------------------------------------------------------------')
             print('----------------------------------------------------------------------------------------------------------------------')
             print('Enter "l" for login')
@@ -55,6 +56,9 @@ def main():
         write_to_file()
         print_thank_you()
 
+def print_welcome():
+    print('Welcome to this programe, We are glad that you are here')
+
 def clear():
     os.system('clear')
 
@@ -72,6 +76,7 @@ def password_checker(entered_password, hashed_password):
 def logged_in(user):
     clear()
     while True:
+        print_welcome()
         print('-----------------------------------------------------------')
         print('-----------------------------------------------------------')
         print('Enter "p" to print username and password')
@@ -203,7 +208,7 @@ def write_to_file():
 def read_from_file():
     global USERS
     USERS = []
-    with open('/workspaces/123885828/project/users.csv') as file:
+    with open('users.csv') as file:
         reader = csv.DictReader(file)
         for row in reader:
             username = row['username']
